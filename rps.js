@@ -1,38 +1,47 @@
 "use strict";
+//User Player Input
+let playerChoice = prompt("which do you choose?", "");
+let playerSelectionFixed = playerChoice.toLowerCase();
 
-//generate a function called computerPlay that will randomly return rock paper scissors
-const trial = Math.trunc(Math.random() * 3) + 1;
-console.log(trial);
-
+//Computer Player Function
+let trial = Math.trunc(Math.random() * 3) + 1;
+let computerResult;
 let computerPlay = function (num) {
   if (trial == 1) {
-    return "rock";
+    return (computerResult = "rock");
   } else if (trial == 2) {
-    return "paper";
+    return (computerResult = "paper");
   } else {
-    return "scissors";
+    return (computerResult = "scissors");
   }
 };
-console.log(computerPlay());
+computerPlay();
 
-//have user input either rock paper or scissors (check for case sensitivity)
-const playerChoice = prompt("which do you choose?", "");
-const playerSelectionFixed = playerChoice.toLowerCase();
-console.log(playerSelectionFixed);
-//check to see if the computer or the user wins
-let oneRound = function (playerSelectionFixed, computerPlay) {
-  //rock logic
-  if (playerSelectionFixed == "rock" && computerPlay == "rock") {
-    return "It's a draw! Play Again!";
-  } else if (playerSelectionFixed == "rock" && computerPlay == "paper") {
-    return "Paper beats rock! You win!";
-  } else if (playerSelectionFixed == "rock" && computerPlay == "scissors") {
-    return "You lose! Rock beats Scissors!";
+//Double check outputs
+console.log(
+  `I pick ${playerSelectionFixed} + computer picks ${computerResult}`
+);
+
+//Play a single Round Game vs Computer
+let computerScore;
+let userScore;
+let singleRound = function (playerSelection, computerSelection) {
+  if (playerSelection == computerSelection) {
+    return "It's a Draw!";
+  } else if (playerSelection == "rock" && computerSelection == "paper") {
+    return "You lose!";
+  } else if (playerSelection == "rock" && computerSelection == "scissors") {
+    return "You win!";
+  } else if (playerSelection == "paper" && computerSelection == "scissors") {
+    return "You lose!";
+  } else if (playerSelection == "paper" && computerSelection == "rock") {
+    return "You win!";
+  } else if (playerSelection == "scissors" && computerSelection == "paper") {
+    return "You win!";
+  } else if (playerSelection == "scissors" && computerSelection == "rock") {
+    return "You lose!";
   }
 };
-//something goofy here
-console.log(oneRound(playerSelectionFixed, computerPlay));
+console.log(singleRound(playerSelectionFixed, computerResult));
 
-//display who won with a statement
-
-//create game with loop
+let game = function () {};
