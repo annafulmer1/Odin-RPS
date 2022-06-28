@@ -1,9 +1,9 @@
 "use strict";
-//User Player Input
+//Variables
 let computerScore = 0;
 let userScore = 0;
 
-//check winner
+//Function to Check Winner
 const checkWinner = function () {
   if (userScore > computerScore) {
     return " User wins!";
@@ -14,9 +14,10 @@ const checkWinner = function () {
   }
 };
 
-//game function
+//Play Game for Five Rounds
 function game() {
   for (let i = 1; i <= 5; i++) {
+    //User Input
     let playerChoice = prompt("which do you choose?", "");
     let playerSelectionFixed = playerChoice.toLowerCase();
 
@@ -40,7 +41,6 @@ function game() {
     );
 
     //Play a single Round Game vs Computer
-
     let singleRound = function (playerSelection, computerSelection) {
       if (playerSelection == computerSelection) {
         return "It's a Draw!";
@@ -73,7 +73,7 @@ function game() {
       }
     };
     singleRound(playerSelectionFixed, computerResult);
-
+    //Console Output
     console.log(
       `Round ${i} of 5.  Your score is ${userScore} and the computer score is ${computerScore}!`
     );
